@@ -1,34 +1,41 @@
 import 'package:flutter/material.dart';
 
-class Register extends StatelessWidget {
-  const Register({super.key});
-
-  @override
+class PageInitial extends StatelessWidget {
+  const PageInitial({super.key});
+@override
   Widget build(BuildContext context) {
-    final emailController = TextEditingController();
-    final passwordController = TextEditingController();
-
-    void register() {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Registrado: ${emailController.text}')),
-      );
-      emailController.clear();
-      passwordController.clear();
-    }
-
     return Scaffold(
-      appBar: AppBar(title: const Text('Registro')),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: register,
-              child: const Text('Empezar'),
+      body: Stack(
+        children: [
+          Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Bienvenido',
+                  style: TextStyle(
+                    fontSize: 36,
+                    color: const Color.fromARGB(255, 243, 3, 3),
+                    fontWeight: FontWeight.bold,
+                    shadows: [
+                      Shadow(
+                        offset: Offset(1, 1),
+                        blurRadius: 3,
+                        color: Colors.black54,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                  },
+                  child: Text('Presionar'),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
